@@ -1,0 +1,35 @@
+<div class="card card-body">
+    <h3>Create New Posts</h3>
+    
+    <form action="/posts" method="POST" enctype="multipart/form-data">
+    <div class="form-group mt-4">
+            <label for="cover_image">Cover Image</label>
+            <input type="file" name="image" id="image" class="form-control" required >
+        </div>
+        <img id="imgPost" class="rounded mx-auto d-block" src="https://www.digitalocean.com/_next/static/media/intro-to-cloud.d49bc5f7.jpeg" alt="">
+        <div class="form-group mt-4">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="Enter Title" required>
+        </div>
+        <div class="form-group mt-4">
+            <label for="text">Body</label>
+            <textarea name="text" id="text" cols="30" rows="10" class="form-control" required></textarea>
+        </div>
+        
+            <button type="submit" class="btn btn-primary mt-4 mb-2 btn-create">Create</button> 
+    </form>
+    
+</div>
+<script>
+    //change image
+    document.getElementById('image').addEventListener('change', function(e) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('imgPost').src = e.target.result;
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    });
+
+    
+
+</script>
