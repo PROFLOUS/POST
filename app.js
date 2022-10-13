@@ -5,7 +5,7 @@ const RoutePost= require('./routers/index')
 const path = require('path');
 const bodyParser = require('body-parser');
 const method = require('method-override');
-;
+const redis = require('./config/redis');
 
 
 const app = express();
@@ -25,6 +25,8 @@ app.use('/posts',express.static(path.join(__dirname,'/public/')))
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
 
 
 app.get('/', (req, res) => {
