@@ -5,10 +5,10 @@ require('dotenv').config()
 const runApp = async ()=> {
     const client = redis.createClient({
         socket: {
-            host: process.env.REDIS_HOST,
-            port: process.env.REDIS_PORT,
+            host: 'localhost',
+            port: 6379,
         },
-        password: process.env.REDIS_PASSWORD
+        // password: process.env.REDIS_PASSWORD
     });
 
     await client.connect();

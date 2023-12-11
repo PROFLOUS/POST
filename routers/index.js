@@ -9,12 +9,12 @@ const alertt=require('alert');
 const siteViews = require('../routers/visits')
 const wish = require('../public/util/store')
 
-if (typeof localStorage === "undefined" || localStorage === null) {
-    var LocalStorage = require('node-localstorage').LocalStorage;
-    localStorage = new LocalStorage('./scratch');
-  }
-  var wishh = wish.wishs()
-  console.log(wishh)
+// if (typeof localStorage === "undefined" || localStorage === null) {
+//     var LocalStorage = require('node-localstorage').LocalStorage;
+//     localStorage = new LocalStorage('./scratch');
+//   }
+//   var wishh = wish.wishs()
+//   console.log(wishh)
 
 router.get('/add',(req, res) => {
     res.render('posts/formAdd')
@@ -24,12 +24,12 @@ router.get('/',async(req, res) => {
     const posts = await Post.find().lean().sort({date:-1})
     res.render('posts/index',{posts})
 })
-router.get('/wishlist', async (req, res) => {
-    var wishh = wish.wishs().get();
-    console.log(wishh)
-    const posts = await Post.find().lean().sort({date:-1})
-    res.render('posts/wishlist',{posts})
-})
+// router.get('/wishlist', async (req, res) => {
+//     var wishh = wish.wishs().get();
+//     console.log(wishh)
+//     const posts = await Post.find().lean().sort({date:-1})
+//     res.render('posts/wishlist',{posts})
+// })
 
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
